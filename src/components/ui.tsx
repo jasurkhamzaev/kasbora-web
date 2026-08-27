@@ -171,10 +171,15 @@ export function Reveal({ children, delay = 0, dir = "up", className = "" }: {
   const [inView, setInView] = useState(false);
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect(); } }, { threshold: 0.12 });
+    if (!el) { setInView(true); return; }
+    // Failsafe: observer ishlamasa ham matn ko'rinsin
+    if (!("IntersectionObserver" in window)) { setInView(true); return; }
+    const fail = window.setTimeout(() => setInView(true), 1100);
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setInView(true); window.clearTimeout(fail); obs.disconnect(); }
+    }, { threshold: 0.05, rootMargin: "0px 0px 120px 0px" });
     obs.observe(el);
-    return () => obs.disconnect();
+    return () => { window.clearTimeout(fail); obs.disconnect(); };
   }, []);
   return (
     <div ref={ref} className={`${dir === "left" ? "rev-l" : "rev"} ${inView ? "in" : ""} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
@@ -189,10 +194,7 @@ export function CountUp({ to, dec }: { to: number; dec?: boolean }) {
   const ref = useRef<HTMLSpanElement>(null);
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(([e]) => {
-      if (!e.isIntersecting) return;
-      obs.disconnect();
+    const run = () => {
       const start = performance.now();
       const dur = 900;
       const tick = (nowT: number) => {
@@ -201,9 +203,19 @@ export function CountUp({ to, dec }: { to: number; dec?: boolean }) {
         if (p < 1) requestAnimationFrame(tick);
       };
       requestAnimationFrame(tick);
-    }, { threshold: 0.4 });
+    };
+    if (!el) { run(); return; }
+    // Failsafe: observer ishlamasa ham sonlar ko'rinsin
+    if (!("IntersectionObserver" in window)) { run(); return; }
+    const fail = window.setTimeout(run, 1100);
+    const obs = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      window.clearTimeout(fail);
+      obs.disconnect();
+      run();
+    }, { threshold: 0.3 });
     obs.observe(el);
-    return () => obs.disconnect();
+    return () => { window.clearTimeout(fail); obs.disconnect(); };
   }, [to]);
   return <span ref={ref}>{dec ? v.toFixed(1) : Math.round(v).toLocaleString("ru-RU")}</span>;
 }
