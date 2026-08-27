@@ -169,6 +169,11 @@ const DICT_UZ: Record<string, string> = {
   "rm3_4": "API marketplace", "rm3_5": "Mintaqaviy kengayish",
   "demo_login_d": "Demo hisoblar orqali 5 rolning hammasini sinab ko'ring — parol:",
   "wr_phone": "Ishga tayyor · +6 bu hafta",
+  "skill_empty": "Hozircha skill'lar yo'q — birinchi assessment bilan boshlang.",
+  "int_d": "Bozorga chuqur bog'lanish",
+  "rm1_p": "PHASE 1 · Hozir", "rm1_t": "MVP — isbotlash",
+  "rm2_p": "PHASE 2 · 3–6 oy", "rm2_t": "Kengaytirish",
+  "rm3_p": "PHASE 3 · 6–12 oy", "rm3_t": "Infratuzilma",
 };
 
 const DICT_EN: Record<string, string> = {
