@@ -64,15 +64,19 @@ body {
 }
 ::selection { background: var(--color-lime); color: #14201A; }
 
-/* ---------- components ---------- */
-.card { background: var(--color-paper); border: 1.5px solid var(--color-ink); border-radius: 12px; }
-.card-soft {
-  background: var(--color-paper);
-  border: 1px solid var(--color-line);
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(20, 32, 26, 0.06);
+/* ---------- components ----------
+   @layer components ichida — Tailwind utility'lari (bg-*, text-*) har doim ustun,
+   shunda bg-pine-deep / bg-doc kabi to'q fonli kartalar to'g'ri ko'rinadi */
+@layer components {
+  .card { background: var(--color-paper); border: 1.5px solid var(--color-ink); border-radius: 12px; }
+  .card-soft {
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(20, 32, 26, 0.06);
+  }
+  html[data-theme="dark"] .card-soft { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); }
 }
-html[data-theme="dark"] .card-soft { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); }
 .lbl {
   font-family: var(--font-mono);
   font-size: 12px;
