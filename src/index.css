@@ -7,20 +7,24 @@
   --color-lime: #D9F24F;
   --color-lime-soft: #F4FADC;
   --color-ink: #14201A;
-  --color-ink-soft: #5C6660;
+  --color-ink-soft: #4E5A53;
   --color-cream: #F6F1E4;
   --color-paper: #FCFAF3;
   --color-line: #E4DECB;
   --color-moss: #4C5B2A;
   --color-sky: #2A7F9E;
   --color-sky-soft: #DFF0F6;
-  --color-amber: #F2A81D;
+  --color-amber: #B27205;
   --color-amber-soft: #FCEFD4;
-  --color-coral: #F0532D;
+  --color-coral: #D9431F;
   --color-coral-soft: #FDE5DE;
   --color-blue: #0B5FFF;
-  --color-cyanx: #00D9C0;
+  --color-cyanx: #00A893;
   --color-violet: #7C3AED;
+  /* hujjat/qorong'i lenta sirtlari — ikkala rejimda ham o'zgarmas */
+  --color-doc: #0A3D2D;
+  --color-docink: #F3EEDF;
+  --color-docline: #2F5A47;
   --font-display: "Archivo Black", "Manrope", system-ui, sans-serif;
   --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -28,23 +32,24 @@
 
 /* ---------- dark theme ---------- */
 html[data-theme="dark"] {
-  --color-pine: #37C48E;
-  --color-pine-deep: #1E7A57;
-  --color-pine-ink: #D9F24F;
+  --color-pine: #3BC98F;
+  --color-pine-deep: #8FE7C0; /* lime-soft ustidagi matn uchun ochiq */
   --color-lime: #D9F24F;
-  --color-lime-soft: #1E2E24;
-  --color-ink: #E9F2E8;
-  --color-ink-soft: #9FB0A4;
-  --color-cream: #15211B;
-  --color-paper: #0E1813;
-  --color-line: #26382E;
-  --color-moss: #A8C153;
-  --color-sky: #5FB4D4;
-  --color-sky-soft: #132730;
-  --color-amber: #F2A81D;
-  --color-amber-soft: #2E2410;
-  --color-coral: #FF7A55;
-  --color-coral-soft: #331A12;
+  --color-lime-soft: #1D2B22;
+  --color-ink: #EAF2EA;
+  --color-ink-soft: #A9BAAE;
+  --color-cream: #16221B;
+  --color-paper: #0E1712;
+  --color-line: #27382D;
+  --color-moss: #AFC765;
+  --color-sky: #63B7D6;
+  --color-sky-soft: #13262E;
+  --color-amber: #F5B23E;
+  --color-amber-soft: #2C2412;
+  --color-coral: #FF7E59;
+  --color-coral-soft: #311B13;
+  --color-violet: #A78BFA;
+  /* doc/docink/docline o'zgarmaydi — hujjat ikkala rejimda ham to'q ko'rinadi */
 }
 
 html { scroll-behavior: smooth; }
@@ -53,6 +58,8 @@ body {
   background: var(--color-paper);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 ::selection { background: var(--color-lime); color: #14201A; }
@@ -70,7 +77,7 @@ html[data-theme="dark"] .card-soft { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-ink-soft);
 }
@@ -86,10 +93,14 @@ html[data-theme="dark"] .card-soft { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   outline: none;
   transition: border-color 0.15s, box-shadow 0.15s;
 }
-.field:focus { border-color: var(--color-pine); box-shadow: 0 0 0 3px rgba(11, 93, 67, 0.13); }
-html[data-theme="dark"] .field:focus { box-shadow: 0 0 0 3px rgba(55, 196, 142, 0.2); }
-.field::placeholder { color: var(--color-ink-soft); opacity: 0.7; font-weight: 500; }
-select.field { appearance: none; background-image: url("image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235C6660' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; }
+.field:focus { border-color: var(--color-pine); box-shadow: 0 0 0 3px rgba(11, 93, 67, 0.14); }
+html[data-theme="dark"] .field:focus { box-shadow: 0 0 0 3px rgba(59, 201, 143, 0.22); }
+.field::placeholder { color: var(--color-ink-soft); opacity: 0.75; font-weight: 500; }
+select.field {
+  appearance: none;
+  background-image: url("image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A968E' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px;
+}
 textarea.field { resize: vertical; min-height: 84px; line-height: 1.55; }
 input[type="range"] { accent-color: var(--color-pine); }
 
@@ -101,7 +112,8 @@ input[type="range"] { accent-color: var(--color-pine); }
 }
 
 .dotgrid-bg { background-image: radial-gradient(var(--color-line) 1px, transparent 1px); background-size: 26px 26px; }
-.doc-stripes { background-image: repeating-linear-gradient(-45deg, transparent 0 9px, rgba(20, 32, 26, 0.025) 9px 10px); }
+.doc-stripes { background-image: repeating-linear-gradient(-45deg, transparent 0 9px, rgba(20, 32, 26, 0.03) 9px 10px); }
+html[data-theme="dark"] .doc-stripes { background-image: repeating-linear-gradient(-45deg, transparent 0 9px, rgba(255, 255, 255, 0.035) 9px 10px); }
 .hex { clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
 .btn-press { transition: transform 0.12s ease, box-shadow 0.12s ease; }
 .btn-press:active { transform: translate(1px, 1px) scale(0.99); }
