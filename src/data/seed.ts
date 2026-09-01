@@ -107,6 +107,9 @@ export const skills: Skill[] = [
   { id: "sk_react", name: "React", category: "Frontend" },
   { id: "sk_git", name: "Git", category: "Vositalar" },
   { id: "sk_rest", name: "REST API", category: "Integratsiya" },
+  /* Phase 2: yangi kasblar */
+  { id: "sk_qa", name: "QA Testing", category: "Sifat" },
+  { id: "sk_figma", name: "Figma", category: "UI/Design" },
 ];
 
 const assessments: Assessment[] = [
@@ -165,6 +168,25 @@ const assessments: Assessment[] = [
       q("a2", "404 status kodi nimani bildiradi?", ["Server xatosi", "Resurs topilmadi", "Avtorizatsiya kerak", "So'rov muvaffaqiyatli"], 1),
       q("a3", "JSON qisqartmasi nimani anglatadi?", ["Java Source Object Notation", "JavaScript Object Notation", "JavaScript Oriented Network", "Java Standard Output Node"], 1),
       q("a4", "Quyidagilardan qaysi metod idempotent hisoblanadi?", ["POST", "GET", "PATCH (har doim)", "CONNECT"], 1),
+    ],
+  },
+  /* Phase 2: yangi kasblar — QA va UI/Design */
+  {
+    id: "as_qa", skillId: "sk_qa", title: "QA Testing Assessment", difficulty: "Junior", durationSec: 360, passing: 70,
+    questions: [
+      q("qa1", "Butun tizimni oxirigacha tekshiradigan test turi qaysi?", ["Unit test", "Integration test", "End-to-end test", "Smoke test"], 2),
+      q("qa2", "Bug report'dagi eng muhim element nima?", ["Screenshot", "Qadam-baqadam takrorlash yo'li", "Muhit versiyasi", "Prioritet"], 1),
+      q("qa3", "Regression test nima uchun o'tkaziladi?", ["Yangi funksiyani tekshirish uchun", "Eski funksiyalar buzilmaganini tekshirish uchun", "Performance o'lchash uchun", "UI chiroyini baholash uchun"], 1),
+      q("qa4", "Test coverage 100% bo'lishi nimani bildiradi?", ["Dasturda bug yo'q", "Barcha kod qatorlari testdan o'tgan", "Barcha user ssenariylari tekshirilgan", "Testlar sifatli"], 1),
+    ],
+  },
+  {
+    id: "as_figma", skillId: "sk_figma", title: "UI/Design Assessment", difficulty: "Junior", durationSec: 360, passing: 70,
+    questions: [
+      q("fg1", "Figma'da Auto Layout nimani avtomatlashtiradi?", ["Ranglarni", "Elementlar orasidagi joylashuv va padding'larni", "Eksportni", "Kommentariyalarni"], 1),
+      q("fg2", "8px grid tizimi nima uchun ishlatiladi?", ["Fayl hajmini kamaytirish uchun", "Izchil va mos ritmik dizayn uchun", "Tez chizish uchun", "SEO uchun"], 1),
+      q("fg3", "Komponent variantlari (variants) qanday foyda beradi?", ["Faqat nomlashni osonlashtiradi", "Bir komponentning holatlarini (hover, disabled) bitta joyda boshqarish", "Faylni kichraytiradi", "Eksport sifatini oshiradi"], 1),
+      q("fg4", "Matn va fon kontrast nisbati accessibility uchun kamida qancha bo'lishi kerak?", ["1.5:1", "2:1", "4.5:1", "10:1"], 2),
     ],
   },
 ];

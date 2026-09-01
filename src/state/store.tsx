@@ -29,6 +29,7 @@ export type Action =
   | { type: "USER_VERIFY"; id: string; verified: boolean }
   | { type: "USER_SUSPEND"; id: string; suspended: boolean }
   | { type: "SKILL_SAVE"; skill: Skill }
+  | { type: "CREATE_ASSESSMENT"; assessment: import("../data/seed").Assessment }
   | { type: "CSV_IMPORT"; students: { name: string; email: string }[]; university: string };
 
 const KEY = "kasbora_db_v4";
@@ -201,6 +202,8 @@ function reducer(db: DB, a: Action): DB {
     }
     case "SKILL_SAVE":
       return { ...db, skills: db.skills.map(s => s.id === a.skill.id ? a.skill : s) };
+    case "CREATE_ASSESSMENT":
+      return withAudit({ ...db, assessments: [...db.assessments, a.assessment] }, "USTOZ AI", `"${a.assessment.title}" assessment'ini generatsiya qildi (${a.assessment.questions.length} savol)`);
     case "CSV_IMPORT": {
       const newUsers: User[] = a.students.map(s => ({
         id: uid(), role: "STUDENT", name: s.name, username: s.email.split("@")[0], email: s.email,
