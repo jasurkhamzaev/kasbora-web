@@ -1,4 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+/** Passport uchun haqiqiy URL — skanerlanganda aynan shu passport ochiladi */
+export function passportUrl(username: string): string {
+  const base = typeof window !== "undefined"
+    ? `${window.location.origin}${window.location.pathname}`
+    : "https://kasbora.uz/";
+  return `${base}#/p/${username}`;
+}
+
+/** Haqiqiy skanerlanadigan QR kod (qrcode kutubxonasi) */
+export function QrReal({ value, size = 92, label }: { value: string; size?: number; label?: string }) {
+  const [data, setData] = useState("");
+  useEffect(() => {
+    let on = true;
+    import("qrcode")
+      .then(QR => QR.toDataURL(value, { width: Math.max(200, size * 3), margin: 1, errorCorrectionLevel: "M", color: { dark: "#14201A", light: "#FFFFFF" } }))
+      .then(u => { if (on) setData(u); })
+      .catch(() => {});
+    return () => { on = false; };
+  }, [value, size]);
+  if (!data) return <div className="rounded-md border-[1.5px] border-ink bg-white shrink-0 animate-pulse" style={{ width: size, height: size }} />;
+  return (
+    <img src={data} width={size} height={size} alt={label || "QR kod"} title={label || value}
+      className="rounded-md border-[1.5px] border-ink bg-white shrink-0" style={{ imageRendering: "pixelated" }} />
+  );
+}
 
 /** Deterministik pseudo-QR (dekorativ, skanerlanadigan ko'rinishda) */
 export function QrBox({ seed, size = 92 }: { seed: string; size?: number }) {

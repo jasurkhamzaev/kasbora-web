@@ -80,7 +80,7 @@ export default function PassportPage({ username }: { username: string }) {
               <h1 className="font-display font-extrabold text-[clamp(1.6rem,4.5vw,2.5rem)] tracking-tight leading-none">SKILL PASSPORT</h1>
               <div className="font-mono text-[12px] text-docink/60 mt-2">№ UZ-KSB-2025-{String(user.id.length * 7919 % 9000 + 1000)} · KASBORA · {fmtDate(prof?.joined || "2025-01-01")}</div>
             </div>
-            <QrBox seed={seed} size={92} />
+            <QrReal value={passportUrl(user.username)} size={92} label={`${user.name} — Skill Passport QR`} />
           </div>
 
           {/* holder */}
