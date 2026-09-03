@@ -3,7 +3,7 @@ import { Link, navigate } from "../lib/router";
 import { useI18n, LocaleControls } from "../lib/i18n";
 import { Btn, Pill, Reveal, Stamp, Icon, I } from "../components/ui";
 import { KasboraLogo } from "../components/Logo";
-import { QrBox } from "../components/charts";
+import { QrBox, QrReal } from "../components/charts";
 
 const API_ENDPOINTS = [
   {
@@ -207,7 +207,7 @@ export default function Ecosystem() {
                 ))}
               </div>
               <div className="flex items-center gap-3 card-soft p-4 max-w-lg">
-                <QrBox seed="t.me/kasbora_bot" size={64} />
+                <QrReal value="https://t.me/kasbora_bot" size={64} />
                 <div>
                   <div className="font-display font-bold text-[13.5px]">@kasbora_bot</div>
                   <div className="text-[12px] text-ink-soft font-mono">{t("eco_bot")}</div>

@@ -231,4 +231,12 @@ export const DICT_KAA: Record<string, string> = {
   "faq_contact": "Basqa sorawlarıńız barma?",
   "faq_contact_d": "Pilot komandası is kúnleri 2 saat ishinde juwap beredi. Telegram bot arqalı da jazıwǵa boladı.",
   "full_read": "Tolıq bólimdi ashıw",
+  "idx_h": "Tereńirek biliń",
+  "idx_t": "KASBORA'nı jaqınıraq tanıń",
+  "idx_p": "Process, kásipler, kásiplik pasport hám soraw-juwap — hárbiri óziniń tolıq betinde. Qızıqqanın ashıń.",
+  "idx_proc_d": "Bilimnen jumısqa — 6 basqıshtıń tolıq jolı hám kandidattı воронkası qalay isleydi.",
+  "idx_sk_d": "Pilottаǵı 8 kásip, olardıń dálil derekleri hám dárejeleri.",
+  "idx_pp_d": "Eń áhmiyetli hújjet — QR verifikaciya, anti-cheat hám ashıq tayınlıq formulası.",
+  "idx_faq_d": "Eń kóp beriletuǵın sorawlar hám anıq juwaplar.",
+  "6 bosqich": "6 basqısh", "8 skill": "8 kásip", "QR + PDF": "QR + PDF", "6 savol": "6 soraw",
 };

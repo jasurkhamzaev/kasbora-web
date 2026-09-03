@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Link, navigate } from "../lib/router";
 import { useI18n } from "../lib/i18n";
 import { Btn, Pill, Reveal, CountUp, Stamp, Bar, Icon, I } from "../components/ui";
-import { QrBox, Donut } from "../components/charts";
+import { QrBox, QrReal, passportUrl, Donut } from "../components/charts";
 import { KasboraLogo } from "../components/Logo";
 import { seedDB } from "../data/seed";
 
@@ -81,7 +81,7 @@ function PassportTeaser() {
     <div className="card-soft anim-floaty relative bg-doc text-docink p-5 max-w-[340px] mx-auto lg:ml-auto lg:mr-2 z-[2] shadow-[6px_6px_0_0_rgba(217,242,79,0.9)]">
       <div className="flex items-center justify-between mb-3">
         <span className="font-mono text-[12px] tracking-[0.2em] text-lime">SKILL PASSPORT · UZ</span>
-        <QrBox seed="kasbora.uz/p/alikarimov" size={52} />
+        <QrReal value={passportUrl("alikarimov")} size={52} />
       </div>
       <div className="font-display font-bold text-lg leading-tight">Ali Karimov</div>
       <div className="text-[12px] text-docink/70 mb-3">Frontend Developer · TATU</div>
@@ -139,7 +139,7 @@ function PassportDemoCard({ p, idx }: { p: typeof PERSONAS[number]; idx: number 
           <div className="font-display font-extrabold text-xl md:text-2xl tracking-tight">SKILL PASSPORT</div>
           <div className="font-mono text-[12px] text-docink/60 mt-1">№ UZ-KSB-2025-{String(idx + 1).padStart(4, "0")} · KASBORA</div>
         </div>
-        <QrBox seed={p.seed} size={70} />
+        <QrReal value={passportUrl(p.seed.split("/").pop() || p.seed)} size={70} />
       </div>
       <div className="flex gap-4 items-center mb-5">
         <div className="w-14 h-14 rounded-xl bg-lime text-pine-ink font-display font-extrabold text-xl flex items-center justify-center border-2 border-docink/30 shrink-0">{p.initials}</div>
@@ -633,7 +633,7 @@ export default function Landing() {
           ))}
         </div>
         <div className="border-t border-line">
-          <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between flex-wrap gap-2 text-[12px] text-ink-soft font-mono">
+          <div className="max-w-6xl mx-auto px-4 py-4 pb-24 md:pb-4 flex items-center justify-between flex-wrap gap-2 text-[12px] text-ink-soft font-mono">
             <span>{t("footer_rights")}</span>
             <span>{t("footer_mvp")}</span>
           </div>

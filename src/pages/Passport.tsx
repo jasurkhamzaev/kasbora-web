@@ -3,7 +3,7 @@ import { Link } from "../lib/router";
 import { useStore, readiness, skillName } from "../state/store";
 import { useI18n } from "../lib/i18n";
 import { Btn, Pill, Stamp, Icon, I, Avatar, Empty } from "../components/ui";
-import { QrBox, Donut } from "../components/charts";
+import { QrBox, QrReal, passportUrl, Donut } from "../components/charts";
 import { KasboraLogo } from "../components/Logo";
 import { LEVEL_LABEL } from "../data/seed";
 

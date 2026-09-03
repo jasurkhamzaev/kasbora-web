@@ -229,4 +229,12 @@ export const DICT_TR: Record<string, string> = {
   "faq_contact": "Başka sorunuz mu var?",
   "faq_contact_d": "Pilot ekip iş günlerinde 2 saat içinde yanıtlar. Telegram botu üzerinden de yazabilirsiniz.",
   "full_read": "Tam bölümü aç",
+  "idx_h": "Derinlemesine keşfedin",
+  "idx_t": "KASBORA'yı daha yakından tanıyın",
+  "idx_p": "Süreç, beceriler, Beceri Pasaportu ve SSS — her biri kendi tam sayfasında. İlginizi çekeni açın.",
+  "idx_proc_d": "Bilgiden işe — 6 adımlık tam yolculuk ve aday hunisi nasıl çalışır.",
+  "idx_sk_d": "Pilottaki 8 beceri, kanıt kaynakları ve seviyeleri.",
+  "idx_pp_d": "En önemli belge — QR doğrulama, anti-cheat ve şeffaf hazırlık formülü.",
+  "idx_faq_d": "En çok sorulan sorular ve net yanıtlar.",
+  "6 bosqich": "6 adım", "8 skill": "8 beceri", "QR + PDF": "QR + PDF", "6 savol": "6 soru",
 };

@@ -189,6 +189,15 @@ const DICT_UZ: Record<string, string> = {
   "faq_contact": "Boshqa savolingiz bormi?",
   "faq_contact_d": "Pilot jamoasi savollarga ish kunlari 2 soat ichida javob beradi. Telegram bot orqali ham yozish mumkin.",
   "full_read": "To'liq bo'limni ochish",
+  /* landing section index */
+  "idx_h": "Batafsil bo'limlar",
+  "idx_t": "KASBORA'ni chuqurroq bilib oling",
+  "idx_p": "Jarayon, skill'lar, malaka pasporti va savol-javob — har biri alohida, to'liq sahifada. Qaysi biri qiziqtirsa, o'shani oching.",
+  "idx_proc_d": "Bilimdan ishga — 6 bosqichli to'liq yo'l va kandidat hayot sikli qanday ishlaydi.",
+  "idx_sk_d": "Piloddagi 8 ta skill, har birining isbot manbalari va darajalari.",
+  "idx_pp_d": "Eng muhim hujjat — QR-verifikatsiya, anti-cheat va shaffof readiness formulasi.",
+  "idx_faq_d": "Eng ko'p beriladigan savollar va aniq javoblar.",
+  "6 bosqich": "6 bosqich", "8 skill": "8 skill", "QR + PDF": "QR + PDF", "6 savol": "6 savol",
 };
 
 const DICT_EN: Record<string, string> = {
@@ -423,6 +432,14 @@ const DICT_EN: Record<string, string> = {
   "faq_contact": "Any other questions?",
   "faq_contact_d": "The pilot team answers within 2 hours on working days. You can also write via the Telegram bot.",
   "full_read": "Open the full section",
+  "idx_h": "Explore in depth",
+  "idx_t": "Get to know KASBORA better",
+  "idx_p": "The process, the skills, the Skill Passport and Q&A — each on its own full page. Open whichever interests you.",
+  "idx_proc_d": "From knowledge to work — the full 6-step journey and how the candidate pipeline works.",
+  "idx_sk_d": "The 8 pilot skills, their proof sources and levels.",
+  "idx_pp_d": "The most important document — QR verification, anti-cheat and the transparent readiness formula.",
+  "idx_faq_d": "The most asked questions, with clear answers.",
+  "6 bosqich": "6 steps", "8 skill": "8 skills", "QR + PDF": "QR + PDF", "6 savol": "6 questions",
 };
 
 const DICTS: Partial<Record<Lang, Record<string, string>>> = {

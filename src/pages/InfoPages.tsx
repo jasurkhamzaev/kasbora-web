@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import { Link } from "../lib/router";
 import { useI18n, LocaleControls } from "../lib/i18n";
 import { Btn, Pill, Reveal, Stamp, Icon, I } from "../components/ui";
-import { QrBox, Donut } from "../components/charts";
+import { QrBox, QrReal, passportUrl, Donut } from "../components/charts";
 import { KasboraLogo } from "../components/Logo";
 import { seedDB } from "../data/seed";
 
@@ -16,11 +16,8 @@ function Shell({ kicker, title, accent, children }: {
       <header className="sticky top-0 z-[70] border-b-[1.5px] border-ink bg-paper/90 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
           <div className="flex items-center gap-4 min-w-0">
-            <Link to="/" className="shrink-0 transition-transform hover:scale-[1.03] active:scale-[0.97]" aria-label="KASBORA">
+            <Link to="/" className="shrink-0 transition-transform hover:scale-[1.03] active:scale-[0.97]" aria-label="KASBORA" title={t("Bosh sahifa")}>
               <KasboraLogo height={25} light={theme === "dark"} />
-            </Link>
-            <Link to="/" className="hidden sm:flex items-center gap-1.5 font-mono text-[12px] font-bold text-ink-soft hover:text-pine transition-colors">
-              <Icon d={I.arrow} size={13} className="rotate-180" /> {t("Bosh sahifa")}
             </Link>
           </div>
           <div className="flex items-center gap-2">
@@ -290,7 +287,7 @@ function PassportDemoCard({ p }: { p: typeof PERSONAS[number] }) {
           <div className="font-display font-extrabold text-xl md:text-2xl tracking-tight">SKILL PASSPORT</div>
           <div className="font-mono text-[12px] text-docink/60 mt-1">№ UZ-KSB-2025-0001 · KASBORA</div>
         </div>
-        <QrBox seed={p.seed} size={70} />
+        <QrReal value={passportUrl(p.seed.split("/").pop() || p.seed)} size={70} />
       </div>
       <div className="flex gap-4 items-center mb-5">
         <div className="w-14 h-14 rounded-xl bg-lime text-pine-ink font-display font-extrabold text-xl flex items-center justify-center border-2 border-docink/30 shrink-0">{p.initials}</div>
