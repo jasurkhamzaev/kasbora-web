@@ -174,6 +174,21 @@ const DICT_UZ: Record<string, string> = {
   "rm1_p": "PHASE 1 · Hozir", "rm1_t": "MVP — isbotlash",
   "rm2_p": "PHASE 2 · 3–6 oy", "rm2_t": "Kengaytirish",
   "rm3_p": "PHASE 3 · 6–12 oy", "rm3_t": "Infratuzilma",
+  /* alohida sahifalar */
+  "proc_p": "KASBORA'da talaba shunchaki ro'yxatdan o'tmaydi — u to'liq zanjirdan o'tadi: bilimni assessment bilan isbotlaydi, mentor tekshiruvidan o'tadi, real kompaniya loyihasida ishlaydi va barcha natijalar Malaka passport'ida jam bo'ladi. Employer esa CV emas, isbot ko'radi.",
+  "proc_lifecycle": "Kandidat hayot sikli — hiring pipeline",
+  "proc_lifecycle_d": "Har bir ariza shu zanjir bo'ylab harakatlanadi. Talaba statusni real vaqtda ko'radi, employer esa har bosqichda faqat isbotlangan natijalar bilan ishlaydi.",
+  "proc_reject": "Istalgan bosqichda rad etilsa",
+  "sk_sources_h": "6 isbot manbai", "isbot_emas": "isbot emas", "sk_levels_h": "Skill darajalari",
+  "sk_levels_d": "Daraja assessment balliga qarab avtomatik beriladi va har yangi isbot bilan yangilanib boradi — passport'da doim eng kuchli manba ko'rsatiladi.",
+  "pp_bands_h": "Work Readiness shkalasi",
+  "pp_b1": "Yo'lning boshida — birinchi assessment kutilmoqda.",
+  "pp_b2": "Skill'lar shakllanmoqda — practice tasklar kerak.",
+  "pp_b3": "Employer'lar ko'radi: interview'ga tayyor kandidat.",
+  "pp_b4": "Yuqori talab — real loyiha tajribasi bilan.",
+  "faq_contact": "Boshqa savolingiz bormi?",
+  "faq_contact_d": "Pilot jamoasi savollarga ish kunlari 2 soat ichida javob beradi. Telegram bot orqali ham yozish mumkin.",
+  "full_read": "To'liq bo'limni ochish",
 };
 
 const DICT_EN: Record<string, string> = {
@@ -394,6 +409,20 @@ const DICT_EN: Record<string, string> = {
   "Demo kirish →": "Demo login →", "demo_login_d": "Try all 5 roles with the demo accounts — password:", "Bosh sahifa": "Home",
   "Bugungi progress": "Today's progress", "Keyingi assessment →": "Next assessment →", "wr_phone": "Job ready · +6 this week",
   "Loyiha": "Project", "review'da": "in review",
+  "proc_p": "At KASBORA a student doesn't just sign up — they go through the full chain: knowledge proven by assessments, mentor reviews, work on real company projects, and every result collected in a Skill Passport. Employers see proof, not a CV.",
+  "proc_lifecycle": "Candidate lifecycle — the hiring pipeline",
+  "proc_lifecycle_d": "Every application moves along this chain. The student sees their status in real time; the employer works only with proven results at every stage.",
+  "proc_reject": "If rejected at any stage",
+  "sk_sources_h": "6 sources of proof", "isbot_emas": "not proof", "sk_levels_h": "Skill levels",
+  "sk_levels_d": "Levels are assigned automatically from assessment scores and updated with every new proof — the passport always shows the strongest source.",
+  "pp_bands_h": "Work Readiness scale",
+  "pp_b1": "At the start — the first assessment awaits.",
+  "pp_b2": "Skills are forming — practice tasks needed.",
+  "pp_b3": "Employers see it: a candidate ready for interviews.",
+  "pp_b4": "High demand — backed by real project experience.",
+  "faq_contact": "Any other questions?",
+  "faq_contact_d": "The pilot team answers within 2 hours on working days. You can also write via the Telegram bot.",
+  "full_read": "Open the full section",
 };
 
 const DICTS: Partial<Record<Lang, Record<string, string>>> = {
