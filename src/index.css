@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pine: #0B5D43;
+  --color-pine-deep: #07402E;
+  --color-pine-ink: #0A2E21;
+  --color-lime: #D9F24F;
+  --color-lime-soft: #F4FADC;
+  --color-ink: #14201A;
+  --color-ink-soft: #4E5A53;
+  --color-cream: #F6F1E4;
+  --color-paper: #DCE6E0;          /* asosiy fon — kumush-yashil */
+  --color-line: #CBD8D1;
+  --color-moss: #4C5B2A;
+  --color-sky: #2A7F9E;
+  --color-sky-soft: #DFF0F6;
+  --color-amber: #B27205;
+  --color-amber-soft: #FCEFD4;
+  --color-coral: #D9431F;
+  --color-coral-soft: #FDE5DE;
+  --color-blue: #0B5FFF;
+  --color-cyanx: #00A893;
+  --color-violet: #7C3AED;
+  /* hujjat/qorong'i lenta sirtlari — ikkala rejimda ham o'zgarmas */
+  --color-doc: #0A3D2D;
+  --color-docink: #F3EEDF;
+  --color-docline: #2F5A47;
+  --font-display: "Archivo Black", "Manrope", system-ui, sans-serif;
+  --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* ---------- dark theme — acid lime (#DFFF00) fon, to'q matn ---------- */
+html[data-theme="dark"] {
+  --color-paper: #DFFF00;          /* asosiy fon */
+  --color-cream: #F1FF85;          /* kartalar/sirtlar — fondan ochroq sariq */
+  --color-ink: #14201A;            /* matn — to'q, sariq fonda maksimal kontrast */
+  --color-ink-soft: #41503C;       /* ikkinchi darajali matn */
+  --color-line: #C6DE2F;           /* chegaralar */
+  --color-lime: #D9F24F;
+  --color-lime-soft: #EFFF9E;      /* yumshoq sirtlar */
+  --color-pine: #0B5D43;           /* to'q yashil — sariq fonda kuchli */
+  --color-pine-deep: #07402E;
+  --color-moss: #4C5B2A;
+  --color-sky: #1F6E8C;
+  --color-sky-soft: #E9FFC2;
+  --color-amber: #96600A;
+  --color-amber-soft: #F7FF9A;
+  --color-coral: #C23A18;
+  --color-coral-soft: #FFE9A8;
+  --color-violet: #6D28D9;
+  /* doc/docink/docline o'zgarmaydi — passport/hujjat ikkala rejimda ham to'q yashil */
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+::selection { background: var(--color-lime); color: #14201A; }
+
+/* ---------- components ----------
+   @layer components ichida — Tailwind utility'lari (bg-*, text-*) har doim ustun,
+   shunda bg-pine-deep / bg-doc kabi to'q fonli kartalar to'g'ri ko'rinadi */
+@layer components {
+  .card { background: var(--color-paper); border: 1.5px solid var(--color-ink); border-radius: 12px; }
+  .card-soft {
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(20, 32, 26, 0.06);
+  }
+  html[data-theme="dark"] .card-soft { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); }
+}
+.lbl {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+.field {
+  width: 100%;
+  background: var(--color-paper);
+  border: 1.5px solid var(--color-line);
+  border-radius: 9px;
+  padding: 9px 12px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-ink);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field:focus { border-color: var(--color-pine); box-shadow: 0 0 0 3px rgba(11, 93, 67, 0.14); }
+html[data-theme="dark"] .field:focus { box-shadow: 0 0 0 3px rgba(59, 201, 143, 0.22); }
+.field::placeholder { color: var(--color-ink-soft); opacity: 0.75; font-weight: 500; }
+select.field {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A968E' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px;
+}
+textarea.field { resize: vertical; min-height: 84px; line-height: 1.55; }
+input[type="range"] { accent-color: var(--color-pine); }
+
+.perf { position: relative; }
+.perf::before, .perf::after {
+  content: ""; position: absolute; left: -7px; top: 0; bottom: 0; width: 14px; z-index: 2;
+  background-image: radial-gradient(circle, var(--color-paper) 3.2px, transparent 3.6px);
+  background-size: 14px 20px; background-position: center;
+}
+
+.dotgrid-bg { background-image: radial-gradient(var(--color-line) 1px, transparent 1px); background-size: 26px 26px; }
+.doc-stripes { background-image: repeating-linear-gradient(-45deg, transparent 0 9px, rgba(20, 32, 26, 0.03) 9px 10px); }
+html[data-theme="dark"] .doc-stripes { background-image: repeating-linear-gradient(-45deg, transparent 0 9px, rgba(255, 255, 255, 0.035) 9px 10px); }
+.hex { clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+.btn-press { transition: transform 0.12s ease, box-shadow 0.12s ease; }
+.btn-press:active { transform: translate(1px, 1px) scale(0.99); }
+
+/* ---------- keyframes ---------- */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-track { animation: marquee 30s linear infinite; }
+.marquee-track:hover { animation-play-state: paused; }
+
+.rev { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.rev.in { opacity: 1; transform: none; }
+.rev-l { opacity: 0; transform: translateX(-30px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.rev-l.in { opacity: 1; transform: none; }
+
+.lm { display: block; overflow: hidden; }
+.lm > span { display: block; transform: translateY(110%); animation: lineUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
+@keyframes lineUp { to { transform: none; } }
+
+@keyframes pop { from { opacity: 0; transform: scale(0.94) translateY(8px); } to { opacity: 1; transform: none; } }
+.anim-pop { animation: pop 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.anim-slide-up { animation: slideUp 0.4s ease both; }
+@keyframes drawer { from { transform: translateX(100%); } to { transform: none; } }
+.anim-drawer { animation: drawer 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+.anim-floaty { animation: floaty 5s ease-in-out infinite; }
+@keyframes growBar { from { width: 0; } }
+.bar-anim { animation: growBar 1s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+@keyframes pulseDot { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+.live-dot { animation: pulseDot 1.6s ease-in-out infinite; }
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee-track { animation: none !important; }
+  .rev, .rev-l { opacity: 1 !important; transform: none !important; }
+  .lm > span { transform: none !important; animation: none !important; }
+}
+
+/* ---------- print (Passport PDF) ---------- */
+@media print {
+  body { background: white; }
+  .no-print { display: none !important; }
+  .card, .card-soft { box-shadow: none !important; break-inside: avoid; }
+}
