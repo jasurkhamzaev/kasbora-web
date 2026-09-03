@@ -592,7 +592,7 @@ export default function Landing() {
       </section>}
 
       {/* CTA */}
-      <section className="max-w-6xl mx-auto px-4 pb-16">
+      <section className="max-w-6xl mx-auto px-4 pt-16 pb-16 md:pt-20 md:pb-20">
         <Reveal>
           <div className="relative overflow-hidden rounded-xl border-[1.5px] border-ink bg-doc text-docink p-8 md:p-12">
             <svg className="absolute -right-8 -top-8 opacity-10" width="300" height="300" viewBox="0 0 64 64" fill="none" aria-hidden="true">
