@@ -1,6 +1,11 @@
 import React, { createContext, useContext, useEffect, useMemo, useState, useRef } from "react";
 import { DICT_RU } from "./dicts-ru";
 import { DICT_TR, DICT_KK, DICT_KAA } from "./dicts-trkk";
+import TRANSLATIONS from "../locales/translations.json";
+
+/* Markazlashtirilgan menyu/umumiy kalitlar (translations.json) — eng yuqori ustuvorlik.
+   Bu fayldagi yorliq o'zgarsa, Navbar, Footer va barcha Info sahifalar avtomatik yangilanadi. */
+const MENU = TRANSLATIONS as Record<string, Record<string, string>>;
 
 export type Lang = "uz" | "kaa" | "kk" | "tr" | "en" | "ru";
 export type Theme = "light" | "dark";
@@ -495,7 +500,8 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 
   const value = useMemo<I18nCtx>(() => {
     const dict = DICTS[lang];
-    const t = (key: string) => (dict && dict[key]) || (DICT_UZ[key]) || key;
+    const t = (key: string) =>
+      (MENU[lang] && MENU[lang][key]) || (dict && dict[key]) || (MENU["uz"] && MENU["uz"][key]) || (DICT_UZ[key]) || key;
     const fmtDate = (iso: string) => {
       try { return new Date(iso).toLocaleDateString(LOCALES[lang], { day: "numeric", month: "short", year: "numeric" }); }
       catch { return new Date(iso).toLocaleDateString(); }
