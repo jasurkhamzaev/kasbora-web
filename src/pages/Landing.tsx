@@ -255,10 +255,11 @@ export default function Landing() {
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
           <Link to="/" className="shrink-0 transition-transform hover:scale-[1.03] active:scale-[0.97]" aria-label="KASBORA"><KasboraLogo height={27} light={theme === "dark"} /></Link>
           <nav className="hidden lg:flex items-center gap-6 text-[13.5px] font-semibold" aria-label="Asosiy menyu">
-            <a href="#jarayon" className="hover:text-pine transition-colors">{t("Jarayon")}</a>
-            <a href="#passport" className="hover:text-pine transition-colors">{t("Skill Passport")}</a>
+            <Link to="/jarayon" className="hover:text-pine transition-colors">{t("Jarayon")}</Link>
+            <Link to="/skilllar" className="hover:text-pine transition-colors">{t("Skill'lar")}</Link>
+            <Link to="/malaka-pasporti" className="hover:text-pine transition-colors">{t("Skill Passport")}</Link>
             <Link to="/ekotizim" className="hover:text-pine transition-colors">{t("Ekotizim")}</Link>
-            <a href="#faq" className="hover:text-pine transition-colors">{t("FAQ")}</a>
+            <Link to="/faq" className="hover:text-pine transition-colors">{t("FAQ")}</Link>
             <Link to="/login" className="text-ink-soft hover:text-ink transition-colors">{t("Kirish")}</Link>
           </nav>
           <div className="flex items-center gap-2">
@@ -276,7 +277,7 @@ export default function Landing() {
               <Link to="/register"><Btn variant="lime" small>{t("Boshlash →")}</Btn></Link>
             </div>
             <nav className="flex flex-col gap-1 text-[14px] font-semibold">
-              {[[t("Jarayon"), "#jarayon"], [t("Skill Passport"), "#passport"], [t("Ekotizim"), "#/ekotizim"], [t("FAQ"), "#faq"], [t("Kirish"), "#/login"]].map(([l, h]) => (
+              {[[t("Jarayon"), "#/jarayon"], [t("Skill'lar"), "#/skilllar"], [t("Skill Passport"), "#/malaka-pasporti"], [t("Ekotizim"), "#/ekotizim"], [t("FAQ"), "#/faq"], [t("Kirish"), "#/login"]].map(([l, h]) => (
                 <a key={l} href={h} onClick={() => setMenu(false)} className="py-2.5 border-b border-line/60 last:border-0 hover:text-pine">{l}</a>
               ))}
             </nav>
@@ -382,38 +383,49 @@ export default function Landing() {
         </Reveal>
       </section>
 
-      {/* PROCESS */}
-      <section id="jarayon" className="border-y-[1.5px] border-ink bg-cream">
+      {/* SECTION INDEX — to'liq bo'limlar alohida sahifalarda */}
+      <section className="border-y-[1.5px] border-ink bg-cream">
         <div className="max-w-6xl mx-auto px-4 py-14">
           <Reveal>
             <div className="mb-8 max-w-2xl">
-              <div className="lbl mb-2">{t("KASBORA jarayoni")}</div>
-              <h2 className="font-display font-extrabold text-[clamp(1.5rem,3.2vw,2.4rem)] leading-tight">{t("Bilimdan ishga — olti bosqich")}</h2>
+              <div className="lbl mb-2">{t("idx_h")}</div>
+              <h2 className="font-display font-extrabold text-[clamp(1.5rem,3.2vw,2.4rem)] leading-tight">{t("idx_t")}</h2>
+              <p className="text-[13.5px] text-ink-soft mt-3 leading-relaxed">{t("idx_p")}</p>
             </div>
           </Reveal>
-          <div className="space-y-3">
-            {STEPS.map((s, i) => (
-              <Reveal key={s.t} delay={i * 60}>
-                <div className="group card-soft p-4 md:p-5 btn-press cursor-default hover:border-pine hover:shadow-[0_12px_28px_rgba(11,93,67,0.14)] transition-all duration-300">
-                  <div className="flex items-start gap-4">
-                    <span className="shrink-0 mt-0.5 w-12 h-12 md:w-14 md:h-14 rounded-lg bg-paper border-[1.5px] border-ink flex items-center justify-center font-display font-extrabold text-base md:text-lg group-hover:bg-lime group-hover:-rotate-3 transition-all duration-300">{String(i + 1).padStart(2, "0")}</span>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-2.5 flex-wrap mb-1">
-                        <h3 className="font-display font-bold text-[14.5px] md:text-base">{t(s.t)}</h3>
-                        <Pill tone={i % 2 ? "sky" : "moss"}>{t(s.tag)}</Pill>
-                      </div>
-                      <p className="text-[13px] md:text-[13.5px] text-ink-soft leading-relaxed max-w-2xl">{t(s.d)}</p>
-                    </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              { n: "01", to: "/jarayon", t: "KASBORA jarayoni", d: "idx_proc_d", tag: "6 bosqich", ic: I.bolt, edge: "!border-l-pine" },
+              { n: "02", to: "/skilllar", t: "Pilotdagi skill'lar", d: "idx_sk_d", tag: "8 skill", ic: I.spark, edge: "!border-l-sky" },
+              { n: "03", to: "/malaka-pasporti", t: "Malaka pasporti", d: "idx_pp_d", tag: "QR + PDF", ic: I.passport, edge: "!border-l-amber" },
+              { n: "04", to: "/faq", t: "Savol-javob", d: "idx_faq_d", tag: "6 savol", ic: I.doc, edge: "!border-l-coral" },
+            ].map((s, i) => (
+              <Reveal key={s.to} delay={i * 80}>
+                <Link to={s.to} className={`group block card-soft p-6 border-l-4 ${s.edge} hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(20,32,26,0.14)] transition-all duration-300 h-full`}>
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <span className="w-12 h-12 rounded-lg bg-paper border-[1.5px] border-ink flex items-center justify-center group-hover:bg-lime group-hover:-rotate-6 transition-all duration-300">
+                      <Icon d={s.ic} size={20} />
+                    </span>
+                    <span className="font-display font-extrabold text-3xl text-line group-hover:text-lime transition-colors">{s.n}</span>
                   </div>
-                </div>
+                  <div className="flex items-center gap-2.5 flex-wrap mb-2">
+                    <h3 className="font-display font-bold text-[16px] md:text-[17px] group-hover:text-pine transition-colors">{t(s.t)}</h3>
+                    <Pill tone="ink">{t(s.tag)}</Pill>
+                  </div>
+                  <p className="text-[13px] md:text-[13.5px] text-ink-soft leading-relaxed mb-4">{t(s.d)}</p>
+                  <span className="inline-flex items-center gap-2 font-display font-bold text-[12.5px] text-pine">
+                    {t("full_read")}
+                    <span className="transition-transform duration-300 group-hover:translate-x-1.5"><Icon d={I.arrow} size={15} /></span>
+                  </span>
+                </Link>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SKILL BADGES */}
-      <section className="max-w-6xl mx-auto px-4 py-14">
+      {/* SKILL BADGES — ko'chirildi: /skilllar */}
+      {false && <section className="max-w-6xl mx-auto px-4 py-14">
         <Reveal>
           <div className="grid lg:grid-cols-[1fr_1.1fr] gap-10 items-center">
             <div>
@@ -456,9 +468,10 @@ export default function Landing() {
             </div>
           </div>
         </Reveal>
-      </section>
+      </section>}
 
-      {/* PASSPORT DEMO + SECURITY */}
+      {/* PASSPORT DEMO + SECURITY — ko'chirildi: /malaka-pasporti */}
+      {false && (
       <section id="passport" className="border-y-[1.5px] border-ink bg-cream">
         <div className="max-w-6xl mx-auto px-4 py-14">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-start">
@@ -504,6 +517,7 @@ export default function Landing() {
           <Reveal delay={100}><div className="mt-12"><Calculator /></div></Reveal>
         </div>
       </section>
+      )}
 
       {/* TESTIMONIALS */}
       <section className="max-w-6xl mx-auto px-4 py-14">
@@ -554,8 +568,8 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section id="faq" className="max-w-3xl mx-auto px-4 py-14">
+      {/* FAQ — ko'chirildi: /faq */}
+      {false && <section id="faq" className="max-w-3xl mx-auto px-4 py-14">
         <Reveal>
           <div className="lbl mb-2">{t("Savol-javob")}</div>
           <h2 className="font-display font-extrabold text-[clamp(1.5rem,3.2vw,2.2rem)] leading-tight mb-7">{t("Ko'p beriladigan savollar")}</h2>
@@ -575,7 +589,7 @@ export default function Landing() {
             </Reveal>
           ))}
         </div>
-      </section>
+      </section>}
 
       {/* CTA */}
       <section className="max-w-6xl mx-auto px-4 pb-16">
@@ -606,9 +620,9 @@ export default function Landing() {
             <div className="mt-3 font-mono text-[12px] tracking-widest text-pine">LEARN · PROVE · EXPERIENCE · GET HIRED</div>
           </div>
           {[
-            { h: t("Platforma"), items: [[t("Jarayon"), "#jarayon"], [t("Skill Passport"), "#passport"], [t("Ekotizim"), "#/ekotizim"], [t("FAQ"), "#faq"], [t("Demo kirish"), "#/login"]] },
+            { h: t("Platforma"), items: [[t("Jarayon"), "#/jarayon"], [t("Skill'lar"), "#/skilllar"], [t("Skill Passport"), "#/malaka-pasporti"], [t("Ekotizim"), "#/ekotizim"], [t("FAQ"), "#/faq"], [t("Demo kirish"), "#/login"]] },
             { h: t("Ishtirokchilar"), items: [[t("Talabalar"), "#/register"], [t("Ish beruvchilar"), "#/login"], [t("Universitetlar"), "#/login"], [t("Mentorlar"), "#/login"]] },
-            { h: t("Huquqiy"), items: [[t("Maxfiylik siyosati"), "#faq"], [t("Shartlar"), "#faq"], [t("Shaxsiy ma'lumotlar"), "#faq"], ["hello@kasbora.uz", "#/login"]] },
+            { h: t("Huquqiy"), items: [[t("Maxfiylik siyosati"), "#/faq"], [t("Shartlar"), "#/faq"], [t("Shaxsiy ma'lumotlar"), "#/faq"], ["hello@kasbora.uz", "#/login"]] },
           ].map(col => (
             <div key={col.h}>
               <div className="lbl mb-3">{col.h}</div>

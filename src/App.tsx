@@ -11,6 +11,7 @@ import Ecosystem from "./pages/Ecosystem";
 import StudentArea from "./pages/StudentArea";
 import EmployerArea, { EMPLOYER_TABS } from "./pages/EmployerArea";
 import { MentorArea, UniversityArea, AdminArea } from "./pages/OtherAreas";
+import { ProcessPage, SkillsInfoPage, PassportInfoPage, FaqPage } from "./pages/InfoPages";
 
 /* ---------- navigation per role ---------- */
 const NAV: Record<string, { id: string; l: string; ic: React.ReactNode }[]> = {
@@ -240,6 +241,10 @@ function Router() {
   }
   if (seg0 === "p" && seg1) return <PassportPage username={seg1} />;
   if (seg0 === "ekotizim") return <Ecosystem />;
+  if (seg0 === "jarayon") return <ProcessPage />;
+  if (seg0 === "skilllar") return <SkillsInfoPage />;
+  if (seg0 === "malaka-pasporti") return <PassportInfoPage />;
+  if (seg0 === "faq") return <FaqPage />;
   if (area) {
     if (!me || me.role !== ROLE_BY_AREA[area]) return null;
     return <RoleShell area={area} tab={seg1 || ""} />;
