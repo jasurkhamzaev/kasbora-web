@@ -258,7 +258,7 @@ const DICT_EN: Record<string, string> = {
   "footer_about": "A platform that turns university knowledge into real experience, verified skills and a formal job.",
   "footer_rights": "© 2025 KASBORA · Built for Uzbekistan", "footer_mvp": "MVP: 1 profession · 1 university · 10 companies",
   "Tajribani isbotlang": "Prove your experience", "bepul · 10 daqiqada boshlanadi": "free · starts in 10 minutes",
-  "Talabaman": "I'm a student", "Ish beruvchiman": "I'm an employer", "Universitetman": "I'm a university",
+
   "aud_st_t": "Not a diploma — proven experience", "aud_st_d2": "You start with a baseline assessment, build a Skill Passport through mentor-reviewed tasks and real company projects. Employers see you by proof, not by CV.",
   "aud_em_t": "Instead of 300 CVs — 12 verified passports", "aud_em_d2": "Candidates filtered by skill, blind review (names hidden, only code graded), interview and employer task pipeline in one dashboard. Time-to-hire drops.",
   "aud_un_t": "Every student's level — in real numbers", "aud_un_d2": "Assessment results, project participation, employment rate — all in a live dashboard. Add students from your SIS in minutes via CSV import (EduOS integration on the way).",

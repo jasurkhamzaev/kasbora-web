@@ -79,7 +79,7 @@ export const DICT_TR: Record<string, string> = {
   "footer_about": "Üniversite bilgisini gerçek deneyime, doğrulanmış beceriye ve resmî işe dönüştüren platform.",
   "footer_rights": "© 2025 KASBORA · Özbekistan için inşa ediliyor", "footer_mvp": "MVP: 1 meslek · 1 üniversite · 10 şirket",
   "Tajribani isbotlang": "Deneyiminizi kanıtlayın", "bepul · 10 daqiqada boshlanadi": "ücretsiz · 10 dakikada başlar",
-  "Talabaman": "Öğrenciyim", "Ish beruvchiman": "İşverenim", "Universitetman": "Üniversiteyim",
+
   "aud_st_t": "Diploma değil — kanıtlanmış deneyim", "aud_st_d2": "Temel değerlendirmeyle başlarsınız, mentor incelemeli görevler ve gerçek şirket projeleriyle Beceri Pasaportu inşa edersiniz. İşveren sizi CV ile değil, kanıtla görür.",
   "aud_em_t": "300 CV yerine — 12 doğrulanmış pasaport", "aud_em_d2": "Beceriye göre filtrelenmiş adaylar, kör inceleme (isimler gizli, yalnızca kod puanlanır), mülakat ve işveren görevi tek panelde. Time-to-hire düşer.",
   "aud_un_t": "Her öğrencinin seviyesi — gerçek sayılarla", "aud_un_d2": "Değerlendirme sonuçları, proje katılımı, istihdam oranı — hepsi canlı panelde. CSV içe aktarma ile öğrencileri SIS'ten dakikalar içinde ekleyin (EduOS entegrasyonu yolda).",

@@ -18,9 +18,9 @@ const SAMPLE_QS = [
 ];
 
 const AUDIENCES = [
-  { id: "student", tab: "Talabaman", title: "aud_st_t", desc: "aud_st_d2", cta: "Talaba sifatida boshlash", to: "/register", chips: ["Assessment", "Mentor", "Real loyiha", "Skill Passport", "QR-verifikatsiya"] },
-  { id: "employer", tab: "Ish beruvchiman", title: "aud_em_t", desc: "aud_em_d2", cta: "Ish beruvchi sifatida qo'shilish", to: "/login", chips: ["Skill (verified)", "Blind Review", "AI Dashboard", "Interview", "Offer"] },
-  { id: "university", tab: "Universitetman", title: "aud_un_t", desc: "aud_un_d2", cta: "Universitet sifatida hamkorlik", to: "/login", chips: ["Analytics", "Talabalar", "Employment rate", "Import qilish"] },
+  { id: "student", tab: "Talaba", title: "aud_st_t", desc: "aud_st_d2", cta: "Talaba sifatida boshlash", to: "/register", chips: ["Assessment", "Mentor", "Real loyiha", "Skill Passport", "QR-verifikatsiya"] },
+  { id: "employer", tab: "Ish beruvchi", title: "aud_em_t", desc: "aud_em_d2", cta: "Ish beruvchi sifatida qo'shilish", to: "/login", chips: ["Skill (verified)", "Blind Review", "AI Dashboard", "Interview", "Offer"] },
+  { id: "university", tab: "Universitet", title: "aud_un_t", desc: "aud_un_d2", cta: "Universitet sifatida hamkorlik", to: "/login", chips: ["Analytics", "Talabalar", "Employment rate", "Import qilish"] },
 ] as const;
 
 const STEPS = [

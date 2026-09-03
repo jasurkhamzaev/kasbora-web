@@ -9,8 +9,8 @@
   --color-ink: #14201A;
   --color-ink-soft: #4E5A53;
   --color-cream: #F6F1E4;
-  --color-paper: #FCFAF3;
-  --color-line: #E4DECB;
+  --color-paper: #DCE6E0;          /* asosiy fon — kumush-yashil */
+  --color-line: #CBD8D1;
   --color-moss: #4C5B2A;
   --color-sky: #2A7F9E;
   --color-sky-soft: #DFF0F6;
@@ -30,26 +30,26 @@
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
-/* ---------- dark theme ---------- */
+/* ---------- dark theme — acid lime (#DFFF00) fon, to'q matn ---------- */
 html[data-theme="dark"] {
-  --color-pine: #3BC98F;
-  --color-pine-deep: #8FE7C0; /* lime-soft ustidagi matn uchun ochiq */
+  --color-paper: #DFFF00;          /* asosiy fon */
+  --color-cream: #F1FF85;          /* kartalar/sirtlar — fondan ochroq sariq */
+  --color-ink: #14201A;            /* matn — to'q, sariq fonda maksimal kontrast */
+  --color-ink-soft: #41503C;       /* ikkinchi darajali matn */
+  --color-line: #C6DE2F;           /* chegaralar */
   --color-lime: #D9F24F;
-  --color-lime-soft: #1D2B22;
-  --color-ink: #EAF2EA;
-  --color-ink-soft: #A9BAAE;
-  --color-cream: #16221B;
-  --color-paper: #0E1712;
-  --color-line: #27382D;
-  --color-moss: #AFC765;
-  --color-sky: #63B7D6;
-  --color-sky-soft: #13262E;
-  --color-amber: #F5B23E;
-  --color-amber-soft: #2C2412;
-  --color-coral: #FF7E59;
-  --color-coral-soft: #311B13;
-  --color-violet: #A78BFA;
-  /* doc/docink/docline o'zgarmaydi — hujjat ikkala rejimda ham to'q ko'rinadi */
+  --color-lime-soft: #EFFF9E;      /* yumshoq sirtlar */
+  --color-pine: #0B5D43;           /* to'q yashil — sariq fonda kuchli */
+  --color-pine-deep: #07402E;
+  --color-moss: #4C5B2A;
+  --color-sky: #1F6E8C;
+  --color-sky-soft: #E9FFC2;
+  --color-amber: #96600A;
+  --color-amber-soft: #F7FF9A;
+  --color-coral: #C23A18;
+  --color-coral-soft: #FFE9A8;
+  --color-violet: #6D28D9;
+  /* doc/docink/docline o'zgarmaydi — passport/hujjat ikkala rejimda ham to'q yashil */
 }
 
 html { scroll-behavior: smooth; }
